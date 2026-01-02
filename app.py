@@ -3,9 +3,8 @@ import sys
 import time
 import webbrowser
 
-# ==================== REPO PASSWORD LOCK ====================
-REPO_PASSWORD = "GHOST-ULTRA-2026"  # 🔐 अपना password रखो
-TELEGRAM_LINK = "https://t.me/i_rajnishmaurya?text=GHOST%BOT%PASSWORD"  # 🔗 अपना Telegram link
+REPO_PASSWORD = "GHOST-ULTRA-2026"
+TELEGRAM_LINK = "https://t.me/i_rajnishmaurya"
 
 def clear_screen():
     os.system('clear')
@@ -19,14 +18,25 @@ user_pass = input("\nEnter Repository Password: ").strip()
 if user_pass != REPO_PASSWORD:
     print("\n❌ WRONG PASSWORD!")
     print("📩 Contact owner on Telegram for access")
-    time.sleep(2)
-    webbrowser.open(TELEGRAM_LINK)
+    print(f"🔗 Telegram Link: {TELEGRAM_LINK}")
+    print("\n📌 Copy-paste the above link manually in your browser/Telegram app.")
+    
+    # For Termux/Linux, try to open with termux-open-url if available
+    if os.name == 'posix':
+        try:
+            os.system(f'termux-open-url "{TELEGRAM_LINK}"')
+            print("✅ Link opened in Termux.")
+        except:
+            print("⚠️  Could not open automatically. Please open manually.")
+    
+    time.sleep(5)
     sys.exit()
 
 print("\n✅ ACCESS GRANTED")
 time.sleep(1)
 clear_screen()
-# ==================== LOCK END ====================
+
+
 import os
 import sys
 import json
