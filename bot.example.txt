@@ -1,3 +1,1 @@
-{
-  "YOUR_UID_HERE": "YOUR_PASSWORD_HERE"
-}
+{"uid": "pass"}
